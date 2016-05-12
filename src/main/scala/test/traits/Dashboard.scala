@@ -1,11 +1,11 @@
 package test.traits
 
-class Dashboard (s: Float) extends Speedometer {
-	var speed: Float = s
+class Dashboard[T] (s: T) extends Speedometer[T] {
+	var speed: T = s
 	
-	def showSpeed: Float = speed
+	def showSpeed: T = speed
 	
-	def accelerate(rate: Float) = println(f"Accelerating at $rate")
+	def accelerate(rate: T) = println(f"Accelerating at $rate")
 	
-	def decelerate(rate: Float) = println(f"Decelerating at $rate")
+	def decelerate(rate: T) = println(f"Decelerating at $rate")
 }

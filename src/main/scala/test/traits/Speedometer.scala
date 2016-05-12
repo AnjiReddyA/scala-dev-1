@@ -3,9 +3,9 @@ package test.traits
 /**
  * Simple speedometer specification.
  */
-trait Speedometer {
-	protected var speed: Float
-	def showSpeed: Float
-	def accelerate(rate: Float)
-	def decelerate(rate: Float)
+trait Speedometer[T] {
+	protected var speed: T
+	def showSpeed: T
+	def accelerate(rate: T)
+	def decelerate(rate: T)
 }

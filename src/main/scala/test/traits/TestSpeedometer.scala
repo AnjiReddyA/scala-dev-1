@@ -2,12 +2,14 @@ package test.traits
 
 object TestSpeedometer {
   def main(args: Array[String]): Unit = {
-    var speedometer: Speedometer = new Dashboard(25)
+    val speedometer1: Speedometer[Double] = new Dashboard(25.1)
+    println("Initial speed = " + speedometer1.showSpeed)
+    speedometer1.accelerate(10.6)
+    speedometer1.decelerate(5.9)
     
-    println("Initial speed = " + speedometer.showSpeed)
-    
-    speedometer.accelerate(10)
-    
-    speedometer.decelerate(5)
+    val speedometer2: Speedometer[Int] = new Dashboard(5)
+    println("Initial speed = " + speedometer2.showSpeed)
+    speedometer2.accelerate(6)
+    speedometer2.decelerate(9)
   }
 }
