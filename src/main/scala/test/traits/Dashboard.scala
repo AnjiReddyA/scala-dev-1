@@ -1,7 +1,6 @@
 package test.traits
 
-class Dashboard[T] (s: T) extends Speedometer[T] {
-	var speed: T = s
+class Dashboard[T] (var speed: T) extends Speedometer[T] {
 	
 	def showSpeed: T = speed
 	

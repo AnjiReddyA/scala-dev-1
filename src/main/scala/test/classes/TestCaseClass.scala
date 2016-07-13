@@ -24,18 +24,19 @@ object TestCaseClassDriver {
 	def main(args: Array[String]) {
 		// apply methods generated
 		val p1 = TestCaseClass("Prithviraj Bose", 18)
-		val p2 = TestCaseClass("Adrian Robertson", 19)
+		val p2 = new TestCaseClass("Adrian Robertson", 19)
 
 		// equals method generated
 		println(p1 == p2)
 
 		// copy method generated
 		val p3 = p1.copy(name = "Abigail Sterkin")
+		println(p3.toString())
 
 		println { 
 			p2.name match {
 				case "Adrian Robertson" => "Match found..."
-				case other => "No suitable match found..."
+				case _ => "No suitable match found..."
 			}
 		}
 	}

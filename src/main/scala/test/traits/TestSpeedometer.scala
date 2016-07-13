@@ -1,7 +1,9 @@
 package test.traits
 
 object TestSpeedometer {
-  def main(args: Array[String]): Unit = {
+  
+	def main(args: Array[String]): Unit = {
+	  
     val speedometer1: Speedometer[Double] = new Dashboard(25.1)
     println("Initial speed = " + speedometer1.showSpeed)
     speedometer1.accelerate(10.6)

@@ -1,16 +1,16 @@
 package test.classes
 
 abstract class MyAbstractFile {
-	def open(filename: String)
-	def save(filename: String)
+	def open(filename: String): Unit
+	def save(filename: String): Unit
 }
 
 class MyFile extends MyAbstractFile {
-	override def open(filename: String) = {
+	override def open(filename: String): Unit = {
 		println("MyFile.open method called...")
 	}
 
-	override def save(filename: String) = {
+	override def save(filename: String): Unit = {
 		println("MyFile.save method called...")
 	}
 }
@@ -26,7 +26,7 @@ class MyCompressedFile extends MyFile {
 
 object TestInhertanceDriver {
 	def main(args: Array[String]) {
-		var f = new MyFile()
+		var f: MyAbstractFile = new MyFile()
 		
 		println("*** Testing MyFile ***")
 

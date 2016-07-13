@@ -14,23 +14,18 @@ package test.classes
 class TestClass(val name: String, val age: Int) {
 	// Auxillary constructor
 	def this(age: Int) {
-		this("Test Class", age)
+		this("John Doe", age)
 	}
-
-	override def toString: String = name + "/" + age
 }
 
 object TestClassDriver {
 	def main(args: Array[String]) {
 		var p: TestClass = new TestClass("Prithviraj Bose", 18)
 
-		println(p.toString)
 		println(p.name + "/" + p.age)
 
-		println(TestCaseClassDriver.toString)
-		println(new TestClass(100).toString())
+		p = new TestClass(100)
+		println(p.name + "/" + p.age)
 
 	}
-
-	override def toString: String = getClass.getName
 }

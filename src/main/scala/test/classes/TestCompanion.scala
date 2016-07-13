@@ -2,27 +2,27 @@ package test.classes
 
 import scala.collection.mutable.ArrayBuffer
 
-class Instance {
-  Instance.instanceCount += 1
+package subtest {
+	class TestCompanion {
+		private var names: ArrayBuffer[String] = TestCompanion.getNames
+
+		def printNames = { for (name <- names) println(s"NAME: $name") }
+	}
 }
 
-object Instance {
-  private var instanceCount: Int = 0
-
-  def getInstanceCount(): Int = {
-    instanceCount
-  }
-  
-  def apply(): Instance = {
-    new Instance()
-  }
+object TestCompanion {
+	def getNames: ArrayBuffer[String] = {
+		var names = ArrayBuffer[String]()
+		names += ("Prithviraj", "Asher", "Abigail")
+		names
+	}
 }
 
 object TestCompanionDriver {
-  def main(args: Array[String]) {
-    for (i <- 1 to 5)
-      Instance()
-      
-      println(s"Total instances = ${Instance.getInstanceCount}")
-  }
+	import test.classes.subtest.TestCompanion
+
+	def main(args: Array[String]) {
+		val tc = new TestCompanion()
+		tc.printNames
+	}
 }
