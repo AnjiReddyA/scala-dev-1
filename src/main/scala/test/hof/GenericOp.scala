@@ -16,6 +16,18 @@ object GenericOp {
 	def multiply(x: Int, y: Int): Int = {
 		x * y
 	}
+	
+	def myfilter[T](f: (T) => Boolean, l: List[T]): List[T] = {
+		
+		var res = new scala.collection.mutable.ArrayBuffer[T]()
+		
+		l.foreach { element => 
+			if (f(element)) 
+				res += element
+		}
+     
+	     res.toList
+	}
 
 	def main(args: Array[String]): Unit = {
 
@@ -29,6 +41,9 @@ object GenericOp {
 		println(genericOp[Float]((x, y) => x * y, 2.5f, .3f))
 		// alternative syntax
 		println(genericOp((x: Int, y: Int) => x * y, 2, 3))
+		
+		val l = (1 to 10).toList
+		myfilter[Int](n => n % 2 == 0, l).foreach(println)
 	}
 
 }

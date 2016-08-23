@@ -16,11 +16,22 @@ object Functions {
 	}
 
 	def createPowerOf(exponent: Double): (Double => Double) = {
-		def wrapper(base: Double): Double = {
-			scala.math.pow(base, exponent)
-		}
-
-		wrapper _
+		
+		/*
+		 * Alternatively can be written like this...
+		 * 
+		 * 		def createPowerOf(exponent: Double): (Double => Double) = {
+		 * 
+		 * 			def wrapper(base: Double): Double = {
+		 * 				scala.math.pow(base, exponent)
+		 * 			}
+		 * 		
+		 * 			wrapper _
+		 * 		}
+		
+		*/
+		
+		base => scala.math.pow(base, exponent)
 	}
 
 	def main(args: Array[String]): Unit = {
